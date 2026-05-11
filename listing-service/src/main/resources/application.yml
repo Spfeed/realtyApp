@@ -1,0 +1,70 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: listing-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/listing_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 50MB
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: listing-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.realty_app.listing_service.event
+        spring.json.value.default.type: com.realty_app.listing_service.event.ApplicationApprovedEvent
+        spring.json.use.type.headers: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+
+media:
+  upload-path: uploads
+  public-url-prefix: /api/listings/media
+
+yandex:
+  geocoder:
+    api-key: ${YANDEX_GEOCODER_API_KEY:}
+    url: https://geocode-maps.yandex.ru/1.x/
+
+overpass:
+  urls:
+    - https://overpass-api.de/api/interpreter
+    - https://maps.mail.ru/osm/tools/overpass/api/interpreter
+    - https://overpass.private.coffee/api/interpreter
+  radius-meters: 800
+
+internal:
+  service-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJsaXN0aW5nLXNlcnZpY2UiLCJ0eXBlIjoiU0VSVklDRSIsInNlcnZpY2VOYW1lIjoibGlzdGluZy1zZXJ2aWNlIn0.y3jT7HRK4Z0kygmtnIQJk5JBKFzTZtVuz0v1ZPx4dX4

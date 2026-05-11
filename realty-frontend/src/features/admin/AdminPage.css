@@ -1,0 +1,265 @@
+.admin-page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+.admin-hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 36px;
+  border-radius: 30px;
+  background:
+    radial-gradient(circle at top right, rgba(249, 115, 22, 0.18), transparent 30%),
+    linear-gradient(135deg, #1c1917, #292524);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 30px;
+  overflow: hidden;
+  position: relative;
+}
+
+.admin-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.04) 50%,
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+.admin-kicker {
+  margin: 0 0 10px;
+  color: #fb923c;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.admin-hero h1 {
+  margin: 0 0 14px;
+  font-size: 38px;
+  color: white;
+  line-height: 1.1;
+}
+
+.admin-hero p {
+  margin: 0;
+  max-width: 680px;
+  color: #d6d3d1;
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.admin-role-card {
+  min-width: 190px;
+  padding: 22px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+  align-self: flex-start;
+}
+
+.admin-role-card span {
+  display: block;
+  margin-bottom: 8px;
+  color: #d6d3d1;
+  font-size: 14px;
+}
+
+.admin-role-card strong {
+  color: #fb923c;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.admin-card {
+  position: relative;
+  padding: 26px;
+  border-radius: 26px;
+  background: linear-gradient(145deg, #ffffff, #f5f5f4);
+  border: 1px solid #e7e5e4;
+  box-shadow:
+    0 10px 30px rgba(28, 25, 23, 0.06),
+    0 2px 8px rgba(28, 25, 23, 0.04);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(249, 115, 22, 0.35);
+  box-shadow:
+    0 20px 45px rgba(28, 25, 23, 0.12),
+    0 4px 12px rgba(249, 115, 22, 0.12);
+}
+
+.admin-card h2 {
+  margin: 0 0 12px;
+  color: #1c1917;
+  font-size: 23px;
+}
+
+.admin-card p {
+  margin: 0 0 22px;
+  color: #57534e;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+.admin-card button,
+.admin-card-link {
+  position: relative;
+  overflow: hidden;
+
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+
+  font-weight: 700;
+  font-size: 14px;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.admin-card button::before,
+.admin-card-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 100%;
+  height: 100%;
+
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+
+  transition: left 0.55s ease;
+}
+
+.admin-card button:hover,
+.admin-card-link:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 14px 28px rgba(249, 115, 22, 0.35);
+  filter: brightness(1.04);
+}
+
+.admin-card button:hover::before,
+.admin-card-link:hover::before {
+  left: 120%;
+}
+
+.admin-card button:active,
+.admin-card-link:active {
+  transform: translateY(0) scale(0.98);
+}
+
+@media (max-width: 760px) {
+  .admin-hero {
+    flex-direction: column;
+    padding: 26px;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-hero h1 {
+    font-size: 30px;
+  }
+}
+
+.admin-card-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-page,
+.admin-hero,
+.admin-grid,
+.admin-card,
+.admin-role-card {
+  min-width: 0;
+}
+
+.admin-card h2,
+.admin-card p,
+.admin-hero h1,
+.admin-hero p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .admin-page {
+    padding: 24px 16px 48px;
+  }
+
+  .admin-hero {
+    flex-direction: column;
+    padding: 28px 22px;
+    border-radius: 22px;
+  }
+
+  .admin-role-card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .admin-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-page {
+    padding: 18px 12px 40px;
+  }
+
+  .admin-hero {
+    padding: 22px 18px;
+    border-radius: 18px;
+  }
+
+  .admin-hero h1 {
+    font-size: 28px;
+  }
+
+  .admin-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .admin-card-link {
+    width: 100%;
+  }
+}

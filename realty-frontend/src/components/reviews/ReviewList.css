@@ -1,0 +1,15 @@
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-empty {
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.review-error {
+  color: #d92d20;
+  font-size: 14px;
+}

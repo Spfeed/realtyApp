@@ -1,0 +1,56 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: recommendation-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/recommendationdb
+    username: postgres
+    password: 1234
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  kafka:
+    bootstrap-servers: localhost:9092
+
+    consumer:
+      group-id: recommendation-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.use.type.headers: false
+
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+ml-service:
+  url: http://ml-service
+
+internal:
+  service-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZWNvbW1lbmRhdGlvbi1zZXJ2aWNlIiwidHlwZSI6IlNFUlZJQ0UiLCJzZXJ2aWNlTmFtZSI6InJlY29tbWVuZGF0aW9uLXNlcnZpY2UifQ.J-PpkRFdv59RjCJB3BGShI5-JRDH906nt5taoQDNiNo

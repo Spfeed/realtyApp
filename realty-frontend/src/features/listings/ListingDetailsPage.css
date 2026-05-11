@@ -1,0 +1,838 @@
+.listing-details-page {
+  min-height: calc(100vh - 69px);
+  padding: 28px 75px 64px;
+  background: #f7f7f8;
+}
+
+.listing-details-container {
+  display: grid;
+  gap: 24px;
+}
+
+.listing-details-error,
+.listing-details-loading {
+  padding: 32px;
+}
+
+.listing-details-error {
+  color: #d92d20;
+}
+
+.listing-details-layout,
+.listing-description-row {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(320px, 408px);
+  gap: 24px;
+  align-items: start;
+}
+
+.listing-gallery-card,
+.listing-side-card,
+.listing-description-card,
+.listing-booking-card,
+.listing-location-card {
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.listing-gallery-card {
+  min-height: 604px;
+  padding: 16px;
+  display: grid;
+  grid-template-columns: minmax(360px, 472px) minmax(0, 1fr);
+  gap: 16px;
+}
+
+.listing-gallery-info {
+  display: grid;
+  gap: 16px;
+}
+
+.listing-price-card,
+.listing-facts-card,
+.listing-owner-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.listing-price-card strong {
+  display: block;
+  margin: 4px 0;
+  font-size: 22px;
+}
+
+.listing-muted {
+  color: var(--c-gray);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.listing-rating-preview {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.listing-rating-preview span {
+  color: var(--c-accent);
+}
+
+.listing-primary-button,
+.listing-secondary-button {
+  width: 100%;
+  height: 44px;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.listing-primary-button {
+  border: 0;
+  background: var(--c-accent);
+  color: var(--c-white);
+}
+
+.listing-secondary-button {
+  margin-top: 10px;
+  border: 1px solid #eeeeee;
+  background: var(--c-white);
+  color: var(--c-black);
+}
+
+.listing-primary-button:hover {
+  background: #e85f35;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 120, 75, 0.28);
+}
+
+.listing-secondary-button:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+.listing-primary-button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.listing-application-message {
+  margin: 10px 0 0;
+  color: var(--c-gray);
+  font-size: 13px;
+}
+
+.listing-facts-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.listing-owner-row,
+.listing-author-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.listing-owner-row {
+  margin-top: 14px;
+}
+
+.listing-owner-row span {
+  display: block;
+  margin-top: 3px;
+  color: var(--c-gray);
+  font-size: 12px;
+}
+
+.listing-owner-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff784b, #ffd3c2);
+  color: var(--c-white);
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.listing-owner-avatar--sm {
+  width: 36px;
+  height: 36px;
+}
+
+.listing-owner-avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+}
+
+.listing-side-card {
+  min-height: 510px;
+  padding: 24px;
+}
+
+.listing-side-card h2 {
+  margin: 8px 0 16px;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.listing-side-card p {
+  margin: 0;
+  color: var(--c-black);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.listing-rules {
+  margin-top: 28px;
+  display: grid;
+  gap: 8px;
+}
+
+.listing-rule-pill {
+  padding: 12px;
+  border-radius: 8px;
+  background: #fff3ee;
+  color: #e85f35;
+  font-size: 14px;
+}
+
+.listing-payment {
+  margin-top: 28px;
+  display: grid;
+  gap: 12px;
+}
+
+.listing-payment div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.status-active {
+  color: #12b76a;
+}
+
+.status-rented {
+  color: #d92d20;
+}
+
+.listing-description-row {
+  margin-top: 0;
+}
+
+.listing-description-card {
+  min-height: 352px;
+  padding: 24px;
+}
+
+.listing-description-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.listing-description-card h1 {
+  margin: 0;
+  font-size: 26px;
+}
+
+.listing-author-line {
+  margin-top: 14px;
+  font-size: 14px;
+}
+
+.listing-author-line b {
+  color: var(--c-accent);
+}
+
+.listing-description-card p {
+  margin-top: 22px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.listing-description-card h3 {
+  margin: 28px 0 12px;
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.listing-amenities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.listing-amenities div {
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+  font-size: 14px;
+}
+
+.listing-booking-card {
+  min-height: 320px;
+  padding: 24px;
+}
+
+.listing-booking-card strong {
+  display: block;
+  margin: 10px 0 16px;
+  font-size: 22px;
+}
+
+.listing-booking-image {
+  height: 105px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+}
+
+.listing-location-card {
+  min-height: 572px;
+  margin-top: 0;
+  padding: 24px;
+}
+
+.listing-location-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.listing-location-header h2 {
+  margin: 8px 0 10px;
+  font-size: 20px;
+}
+
+.listing-location-header p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.listing-location-content {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 36px;
+}
+
+.listing-map-placeholder {
+  height: 380px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+}
+
+.listing-map-legend h3 {
+  margin: 0 0 14px;
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.listing-map-legend h3:not(:first-child) {
+  margin-top: 32px;
+}
+
+.listing-map-legend p {
+  margin: 0 0 12px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.listing-reviews-section {
+  margin-top: 0;
+}
+
+.listing-reviews-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listing-reviews-header h2 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.listing-reviews-header button {
+  height: 36px;
+  padding: 0 16px;
+
+  border: 1px solid #eeeeee;
+  border-radius: 9999px;
+
+  background: var(--c-white);
+  color: var(--c-black);
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.listing-reviews-header button:hover {
+  border-color: var(--c-accent);
+  background: #fff3ee;
+  color: var(--c-accent);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 120, 75, 0.18);
+}
+
+.listing-reviews-content {
+  margin-top: 16px;
+  min-height: 248px;
+}
+
+.listing-reviews-empty {
+  height: 248px;
+  margin: 0;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.listing-owner-link {
+  color: var(--c-black);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.listing-owner-link:hover {
+  color: var(--c-accent);
+}
+
+.listing-owner-link:focus-visible {
+  outline: 2px solid rgba(255, 120, 75, 0.45);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.listing-primary-button--disabled,
+.listing-primary-button--disabled:hover {
+  background: #dcdcdc;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.listing-edit-button {
+  width: 100%;
+  height: 44px;
+  margin-bottom: 10px;
+
+  border: 1px solid rgba(255, 120, 75, 0.35);
+  border-radius: 9999px;
+
+  background: #fff3ee;
+  color: var(--c-accent);
+
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.listing-edit-button:hover {
+  background: #ffe6da;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 120, 75, 0.18);
+}
+
+.listing-edit-button:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.listing-nearby-group {
+  margin-top: 14px;
+}
+
+.listing-nearby-group h4 {
+  margin: 0 0 6px;
+  color: var(--c-black);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.listing-nearby-group p {
+  margin: 4px 0;
+  color: var(--c-gray);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.listing-map-legend {
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.listing-nearby-group {
+  margin-top: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.listing-nearby-group:last-child {
+  border-bottom: 0;
+}
+
+.listing-nearby-group-header {
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.listing-nearby-group-header h4 {
+  margin: 0;
+  color: var(--c-black);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.listing-nearby-group-header button {
+  border: 0;
+  background: transparent;
+  color: var(--c-accent);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.listing-nearby-group p {
+  margin: 4px 0;
+  color: var(--c-gray);
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.listing-nearby-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.38);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: nearbyBackdropIn 0.22s ease;
+}
+
+.listing-nearby-modal {
+  width: min(520px, 100%);
+  max-height: 78vh;
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--c-white);
+  box-shadow: 0 20px 60px rgba(3, 3, 3, 0.22);
+
+  display: flex;
+  flex-direction: column;
+
+  animation: nearbyModalIn 0.24s ease;
+  transform-origin: center;
+}
+
+.listing-nearby-modal-header {
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.listing-nearby-modal-header h3 {
+  margin: 0;
+  color: var(--c-black);
+  font-size: 20px;
+}
+
+.listing-nearby-modal-header button {
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2f2f2;
+  color: var(--c-black);
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.listing-nearby-modal-list {
+  overflow: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.listing-nearby-modal-item {
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #f7f7f8;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.listing-nearby-modal-item span {
+  color: var(--c-black);
+  font-size: 14px;
+}
+
+.listing-nearby-modal-item b {
+  color: var(--c-accent);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.listing-nearby-show-all {
+  width: 100%;
+  height: 38px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: #fff3ee;
+  color: var(--c-accent);
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.listing-nearby-show-all:hover {
+  background: #ffe6da;
+}
+
+.listing-nearby-modal--large {
+  width: min(760px, 100%);
+}
+
+.listing-nearby-modal-groups {
+  overflow: auto;
+  display: grid;
+  gap: 18px;
+  padding-right: 4px;
+}
+
+.listing-nearby-modal-group {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.listing-nearby-modal-group:last-child {
+  border-bottom: 0;
+}
+
+.listing-nearby-modal-group h4 {
+  margin: 0 0 10px;
+  color: var(--c-black);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.listing-nearby-preview-list {
+  min-height: 0;
+  overflow: hidden;
+  flex: 1;
+}
+
+.listing-nearby-show-all {
+  flex-shrink: 0;
+  width: 100%;
+  height: 38px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 9999px;
+  background: #fff3ee;
+  color: var(--c-accent);
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.listing-map-click-zone {
+  cursor: pointer;
+}
+
+.listing-photo-main-button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+@keyframes nearbyBackdropIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes nearbyModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 1180px) {
+  .listing-details-layout,
+  .listing-description-row {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-side-card,
+  .listing-booking-card {
+    min-height: auto;
+  }
+
+  .listing-booking-card {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .listing-gallery-card {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .listing-gallery-info {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-price-card,
+  .listing-facts-card,
+  .listing-owner-card {
+    min-width: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 720px) {
+  .listing-details-page {
+    padding: 16px 12px 40px;
+  }
+
+  .listing-details-container {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .listing-details-layout,
+  .listing-description-row,
+  .listing-location-content {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-gallery-card,
+  .listing-side-card,
+  .listing-description-card,
+  .listing-location-card {
+    width: 100%;
+    min-width: 0;
+    padding: 14px;
+  }
+
+  .listing-gallery-info {
+    grid-template-columns: 1fr;
+  }
+
+   .listing-gallery-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .listing-location-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .listing-map-legend {
+    height: auto;
+  }
+
+  .listing-description-header {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .listing-amenities {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-facts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-payment div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .listing-reviews-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .listing-reviews-header button {
+    width: 100%;
+  }
+}

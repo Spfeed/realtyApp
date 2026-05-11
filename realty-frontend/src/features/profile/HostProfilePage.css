@@ -1,0 +1,385 @@
+.host-profile-page {
+  min-height: calc(100vh - 69px);
+  background: var(--c-white);
+  padding-bottom: 64px;
+}
+
+.host-profile-container {
+  display: grid;
+  gap: 32px;
+}
+
+.host-profile-loading,
+.host-profile-error {
+  padding: 32px;
+}
+
+.host-profile-error {
+  color: #d92d20;
+}
+
+.host-profile-card {
+  min-height: 168px;
+  padding: 24px;
+  border-radius: 12px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 24px;
+  align-items: center;
+}
+
+.host-profile-main,
+.host-stats,
+.host-stat-card,
+.host-rating-card {
+  min-width: 0;
+}
+
+
+.host-profile-main {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.host-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #ff784b, #ffd3c2);
+  color: var(--c-white);
+  font-size: 36px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.host-avatar-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 9999px;
+}
+
+.host-profile-main h1 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 700;
+}
+
+.host-profile-main p {
+  margin: 6px 0 0;
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.host-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 12px;
+}
+
+.host-stat-card,
+.host-rating-card {
+  width: auto;
+  min-height: 80px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+  text-align: center;
+}
+
+.host-stat-card span,
+.host-rating-card span {
+  display: block;
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.host-stat-card strong,
+.host-rating-card strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.host-rating-card strong {
+  color: var(--c-accent);
+  font-size: 14px;
+}
+
+.host-contact-button,
+.host-review-button {
+  width: 130px;
+  height: 40px;
+}
+
+.host-review-button {
+  margin-top: 0;
+}
+
+.host-contact-button {
+  width: 111px;
+  height: 36px;
+  border: 0;
+  border-radius: 9999px;
+  background: var(--c-accent);
+  color: var(--c-white);
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.host-contact-button:hover {
+  background: #e85f35;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(255, 120, 75, 0.28);
+}
+
+.host-section {
+  margin-top: 0;
+}
+
+.host-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.host-section h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.host-section-header h2 {
+  margin: 0;
+}
+
+.host-section-header span {
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.host-listings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.host-rented-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  overflow: visible;
+}
+
+.host-listing-card {
+  width: 100%;
+  min-height: 212px;
+  padding: 16px;
+  border-radius: 8px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+
+  display: grid;
+  grid-template-columns: 141px minmax(0, 1fr);
+  gap: 16px;
+}
+
+.host-listing-card--muted {
+  background: #f2f2f2;
+  box-shadow: none;
+  cursor: default;
+  opacity: 0.8;
+}
+
+.host-listing-image {
+  width: 141px;
+  height: 120px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.host-listing-content {
+  min-width: 0;
+}
+
+.host-listing-top {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+}
+
+.host-listing-top h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+.host-listing-top strong {
+  color: var(--c-accent);
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.host-listing-content p {
+  margin: 12px 0;
+  color: var(--c-gray);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.host-listing-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.host-empty-card {
+  margin: 0;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+  color: var(--c-gray);
+}
+
+.host-listing-link {
+  color: inherit;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.host-listing-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(3, 3, 3, 0.08);
+}
+
+.host-listing-link:focus-visible {
+  outline: 2px solid rgba(255, 120, 75, 0.45);
+  outline-offset: 4px;
+}
+
+.host-review-button {
+  margin-top: 12px;
+  width: 100%;
+  height: 44px;
+
+  border: 1px solid #eeeeee;
+  border-radius: 9999px;
+
+  background: var(--c-white);
+  color: var(--c-black);
+
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.host-review-button:hover {
+  border-color: var(--c-accent);
+  color: var(--c-accent);
+}
+
+@media (max-width: 1080px) {
+  .host-profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .host-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .host-contact-button,
+  .host-review-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 820px) {
+  .host-listings-grid,
+  .host-rented-row {
+    grid-template-columns: 1fr;
+  }
+
+  .host-section-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 620px) {
+  .host-profile-container {
+    gap: 24px;
+  }
+
+  .host-profile-card {
+    padding: 20px 16px;
+  }
+
+  .host-profile-main {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .host-avatar {
+    width: 92px;
+    height: 92px;
+    font-size: 28px;
+  }
+
+  .host-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .host-listing-card {
+    grid-template-columns: 1fr;
+  }
+
+  .host-listing-image {
+    width: 100%;
+    height: 200px;
+  }
+
+  .host-listing-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .host-listing-top strong {
+    white-space: normal;
+  }
+
+  .host-listing-meta {
+    grid-template-columns: 1fr;
+  }
+}

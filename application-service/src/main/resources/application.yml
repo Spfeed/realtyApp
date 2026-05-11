@@ -1,0 +1,48 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: application-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/application_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+    consumer:
+      group-id: application-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: com.realty_app.application_service.event
+        spring.json.value.default.type: com.realty_app.application_service.event.ConversationCreatedEvent
+        spring.json.use.type.headers: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+internal:
+  service-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhcHBsaWNhdGlvbi1zZXJ2aWNlIiwidHlwZSI6IlNFUlZJQ0UiLCJzZXJ2aWNlTmFtZSI6ImFwcGxpY2F0aW9uLXNlcnZpY2UifQ.I0BP4pu__1LApmT87HqfPbgEaoRPUwn5Wdg_L0Qug0Y

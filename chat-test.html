@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Test</title>
+</head>
+<body>
+<h2>Chat WebSocket Test</h2>
+
+<button onclick="connect()">Connect</button>
+<button onclick="sendMessage()">Send message</button>
+
+<pre id="log"></pre>
+
+<script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.1.1/bundles/stomp.umd.min.js"></script>
+
+<script>
+    let client;
+
+    function log(message) {
+        document.getElementById("log").textContent += message + "\n";
+    }
+
+    function connect() {
+        client = new StompJs.Client({
+            brokerURL: "ws://localhost:8080/ws/chat",
+
+            connectHeaders: {
+                Authorization: "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkByZWFsdHlhcHAuY29tIiwidXNlcklkIjoxLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE3Nzg1MDgzNDgsImV4cCI6MTc3ODU5NDc0OH0.f6ulWriBUdz4yAlcVngTxyjbx2bQdg1QkJB8h1UWxos"
+            },
+
+            debug: function (str) {
+                log(str);
+            },
+
+            onConnect: function () {
+                log("Connected");
+
+                client.subscribe("/topic/chat/2", function (message) {
+                    log("Received: " + message.body);
+                });
+            },
+            onStompError: function (frame) {
+                log("Broker error: " + frame.headers["message"]);
+            }
+        });
+
+        client.activate();
+    }
+
+    function sendMessage() {
+        client.publish({
+            destination: "/app/chat.send",
+            body: JSON.stringify({
+                conversationId: 2,
+                text: "DTO разделены"
+            })
+        });
+    }
+</script>
+</body>
+</html>

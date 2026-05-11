@@ -1,0 +1,13 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: service-discovery
+
+eureka:
+  server:
+    enable-self-preservation: false #TODO в релизе поставить на true
+  client:
+    register-with-eureka: false
+    fetch-registry: false

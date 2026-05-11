@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://postgres:5432/recommendationdb
+    username: postgres
+    password: 1234
+
+  kafka:
+    bootstrap-servers: kafka:9092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://service-discovery:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+ml-service:
+  url: http://ml-service:8000
+
+internal:
+  service-token: ${RECOMMENDATION_SERVICE_TOKEN}

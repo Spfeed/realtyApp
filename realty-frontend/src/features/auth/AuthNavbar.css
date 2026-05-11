@@ -1,0 +1,54 @@
+.auth-navbar {
+  height: 69px;
+  padding: 0 135px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.auth-navbar-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--c-black);
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.auth-navbar-logo-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.auth-navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 34px;
+}
+
+.auth-navbar-nav a {
+  color: var(--c-black);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.auth-navbar-logo:hover {
+  opacity: 0.75;
+}
+
+.auth-navbar-nav a:hover {
+  color: var(--c-accent);
+}
+
+.auth-navbar-logo:focus-visible,
+.auth-navbar-nav a:focus-visible {
+  outline: 2px solid rgba(255, 120, 75, 0.45);
+  outline-offset: 4px;
+  border-radius: 9999px;
+}

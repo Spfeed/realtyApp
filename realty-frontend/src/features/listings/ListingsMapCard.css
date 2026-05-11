@@ -1,0 +1,229 @@
+.listings-map-marker {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  transform: translate(-22px, -44px);
+  cursor: pointer;
+
+  filter: drop-shadow(0 8px 12px rgba(3, 3, 3, 0.22));
+  transition:
+    transform 0.18s ease,
+    filter 0.18s ease;
+}
+
+.listings-map-marker:hover {
+  transform: translate(-22px, -48px) scale(1.05);
+  filter: drop-shadow(0 12px 18px rgba(3, 3, 3, 0.28));
+}
+
+.listings-map-marker img {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+
+.listings-map-marker--group span {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+
+  min-width: 22px;
+  height: 22px;
+  padding: 0 6px;
+
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: white;
+
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 22px;
+  text-align: center;
+
+  box-shadow: 0 6px 14px rgba(3, 3, 3, 0.24);
+}
+
+.listings-map-balloon {
+  position: relative;
+  width: 300px;
+  padding: 14px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 18px 45px rgba(3, 3, 3, 0.22);
+  animation: listingsMapBalloonIn 0.18s ease;
+}
+
+.listings-map-balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+
+  width: 16px;
+  height: 16px;
+
+  background: white;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.listings-map-balloon-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 3;
+
+  width: 24px;
+  height: 24px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: #f2f2f2;
+  color: #57534e;
+
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.listings-map-balloon-close:hover {
+  background: #fff3ee;
+  color: var(--c-accent);
+}
+
+.listings-map-balloon-content {
+  position: relative;
+  z-index: 2;
+}
+
+.listings-map-balloon-listing {
+  display: grid;
+  gap: 12px;
+}
+
+.listings-map-balloon-image {
+  width: 100%;
+  height: 132px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+  object-fit: cover;
+  object-position: center;
+}
+
+.listings-map-balloon-image--empty {
+  width: 100%;
+  height: 132px;
+}
+
+.listings-map-balloon-body {
+  padding-right: 22px;
+}
+
+.listings-map-balloon-body h3,
+.listings-map-balloon-group h3 {
+  margin: 0 0 8px;
+  color: var(--c-black);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.listings-map-balloon-body strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--c-black);
+  font-size: 15px;
+}
+
+.listings-map-balloon-body p {
+  margin: 0 0 12px;
+  color: var(--c-gray);
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.listings-map-balloon-button {
+  width: 100%;
+  height: 38px;
+
+  border-radius: 9999px;
+  background: var(--c-accent);
+  color: white;
+
+  font-size: 13px;
+  font-weight: 800;
+  text-decoration: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listings-map-balloon-button:hover {
+  background: #e85f35;
+}
+
+.listings-map-balloon-group-list {
+  max-height: 300px;
+  overflow: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.listings-map-balloon-mini {
+  min-height: 64px;
+  padding: 8px;
+  border-radius: 12px;
+  background: #f7f7f8;
+  color: inherit;
+  text-decoration: none;
+
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+.listings-map-balloon-mini:hover {
+  background: #fff3ee;
+}
+
+.listings-map-balloon-mini img,
+.listings-map-balloon-mini-empty {
+  width: 72px;
+  height: 48px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #e8e8e8, #dcdcdc);
+  object-fit: cover;
+  object-position: center;
+}
+
+.listings-map-balloon-mini span {
+  min-width: 0;
+  display: grid;
+  gap: 3px;
+}
+
+.listings-map-balloon-mini b {
+  color: var(--c-black);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.listings-map-balloon-mini small {
+  color: var(--c-accent);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+@keyframes listingsMapBalloonIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

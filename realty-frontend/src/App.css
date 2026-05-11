@@ -1,0 +1,102 @@
+:root {
+  --c-white: #fff;
+  --c-accent: #ff784b;
+  --c-accent-hover: #e85f35;
+  --c-black: #030303;
+  --c-surface: #f2f2f2;
+  --c-muted: #94a3b8;
+  --c-gray: #979797;
+  --c-border: #eeeeee;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+
+  --container: 1180px;
+  --page-x: 32px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--c-black);
+  background: var(--c-white);
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.page {
+  width: 100%;
+  padding: 32px var(--page-x) 64px;
+}
+
+.page-container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --page-x: 20px;
+  }
+
+  .page {
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
+}
+
+@media (max-width: 520px) {
+  :root {
+    --page-x: 14px;
+  }
+}

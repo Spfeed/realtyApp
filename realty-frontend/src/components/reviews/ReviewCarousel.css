@@ -1,0 +1,51 @@
+.review-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.review-carousel-track {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.review-carousel-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 2;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.review-carousel-arrow--left {
+  left: -42px;
+}
+
+.review-carousel-arrow--right {
+  right: -42px;
+}
+
+.review-carousel-arrow:hover {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.review-carousel-arrow:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.review-carousel-arrow:disabled:hover {
+  transform: translateY(-50%);
+}
+
+.review-carousel-arrow img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}

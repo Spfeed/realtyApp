@@ -1,0 +1,39 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: review-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/review_db
+    username: postgres
+    password: 1234
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+
+internal:
+  service-token: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyZXZpZXctc2VydmljZSIsInR5cGUiOiJTRVJWSUNFIiwic2VydmljZU5hbWUiOiJyZXZpZXctc2VydmljZSJ9.GdIyiCISxXPoNuQD3WkRyaKhK-FcRHS24YtFuXMw4uA

@@ -1,0 +1,146 @@
+.listing-map-card {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #f5f5f4;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.08);
+}
+
+.listing-map {
+  width: 100%;
+  height: 100%;
+}
+
+.listing-map-placeholder {
+  min-height: 220px;
+  padding: 22px;
+  border-radius: 18px;
+  background: #f5f5f4;
+  color: var(--c-gray);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.listing-map-placeholder span {
+  color: var(--c-black);
+  font-weight: 700;
+}
+
+.listing-map-placeholder p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.map-balloon {
+  min-width: 220px;
+  padding: 6px 2px;
+  font-family: inherit;
+}
+
+.map-balloon strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--c-black);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.map-balloon p {
+  margin: 0;
+  color: var(--c-gray);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.map-balloon--poi strong {
+  font-size: 15px;
+}
+
+.map-balloon--poi p {
+  color: var(--c-accent);
+  font-weight: 600;
+}
+
+.custom-map-balloon {
+  position: relative;
+  width: 260px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: white;
+  box-shadow: 0 18px 45px rgba(3, 3, 3, 0.22);
+  animation: customMapBalloonIn 0.18s ease;
+}
+
+.custom-map-balloon::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  background: white;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.custom-map-balloon-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  z-index: 2;
+
+  width: 24px;
+  height: 24px;
+  border: 0;
+  border-radius: 50%;
+
+  background: #f2f2f2;
+  color: #57534e;
+
+  font-size: 18px;
+  line-height: 24px;
+  cursor: pointer;
+}
+
+.custom-map-balloon-close:hover {
+  background: #fff3ee;
+  color: var(--c-accent);
+}
+
+.custom-map-balloon-content {
+  padding-right: 18px;
+}
+
+.custom-map-balloon-title {
+  margin-bottom: 7px;
+  color: var(--c-black);
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.custom-map-balloon-title--poi {
+  font-size: 15px;
+}
+
+.custom-map-balloon-text {
+  color: var(--c-gray);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+@keyframes customMapBalloonIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

@@ -1,0 +1,149 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins:
+              - "http://localhost:5173"
+              - "http://192.168.1.90:5173"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            exposedHeaders:
+              - "Authorization"
+            allowCredentials: true
+
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+
+      routes:
+        - id: auth-service
+          uri: lb://AUTH-SERVICE
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/auth/(?<segment>.*), /auth/$\{segment}
+
+        - id: user-media
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/media/**
+          filters:
+            - RewritePath=/api/users/media/(?<segment>.*), /users/media/$\{segment}
+
+        - id: user-service
+          uri: lb://USER-SERVICE
+          predicates:
+            - Path=/api/users/**
+          filters:
+            - RewritePath=/api/users/(?<segment>.*), /users/$\{segment}
+
+        - id: listing-media
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/listings/media/**
+          filters:
+            - RewritePath=/api/listings/media/(?<segment>.*), /listings/media/$\{segment}
+
+        - id: listing-service-root
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/listings
+          filters:
+            - SetPath=/listings
+
+        - id: listing-service
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/listings/**
+          filters:
+            - RewritePath=/api/listings/(?<segment>.*), /listings/$\{segment}
+
+        - id: listing-references
+          uri: lb://LISTING-SERVICE
+          predicates:
+            - Path=/api/references/**
+          filters:
+            - RewritePath=/api/references/(?<segment>.*), /references/$\{segment}
+
+        - id: application-service-root
+          uri: lb://APPLICATION-SERVICE
+          predicates:
+            - Path=/api/applications
+          filters:
+            - SetPath=/applications
+
+        - id: application-service
+          uri: lb://APPLICATION-SERVICE
+          predicates:
+            - Path=/api/applications/**
+          filters:
+            - RewritePath=/api/applications/(?<segment>.*), /applications/$\{segment}
+
+        - id: review-service-root
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/api/reviews
+          filters:
+            - SetPath=/reviews
+
+        - id: review-service
+          uri: lb://REVIEW-SERVICE
+          predicates:
+            - Path=/api/reviews/**
+          filters:
+            - RewritePath=/api/reviews/(?<segment>.*), /reviews/$\{segment}
+
+        - id: chat-service-root
+          uri: lb://CHAT-SERVICE
+          predicates:
+            - Path=/api/conversations
+          filters:
+            - SetPath=/conversations
+
+        - id: chat-service
+          uri: lb://CHAT-SERVICE
+          predicates:
+            - Path=/api/conversations/**
+          filters:
+            - RewritePath=/api/conversations/(?<segment>.*), /conversations/$\{segment}
+
+        - id: chat-service-ws
+          uri: lb:ws://CHAT-SERVICE
+          predicates:
+            - Path=/ws/chat
+          filters:
+            - SetPath=/ws
+
+        - id: recommendation-service
+          uri: lb://RECOMMENDATION-SERVICE
+          predicates:
+            - Path=/api/recommendations/**
+          filters:
+            - RewritePath=/api/recommendations/(?<segment>.*), /recommendations/$\{segment}
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true

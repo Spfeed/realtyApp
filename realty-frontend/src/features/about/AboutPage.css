@@ -1,0 +1,381 @@
+.about-page {
+  min-height: calc(100vh - 69px);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 48px;
+  background: var(--c-white);
+}
+
+.about-hero-text {
+  max-width: 760px;
+}
+
+.about-hero h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+.about-hero p {
+  margin-top: 16px;
+  color: var(--c-gray);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.about-features {
+  margin-top: 40px;
+  display: flex;
+  gap: 24px;
+}
+
+.about-feature-card {
+  width: 243px;
+  height: 228px;
+  padding: 20px;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.about-feature-card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about-feature-card p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--c-gray);
+}
+
+.about-step-card {
+  padding: 24px;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.about-step-card h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.about-step-card p {
+  margin-top: 12px;
+  color: var(--c-gray);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.about-cta {
+  margin-top: 40px;
+  max-width: 427px;
+  padding: 24px;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.about-cta h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.about-cta p {
+  margin-top: 10px;
+  color: var(--c-gray);
+  font-size: 14px;
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(320px, 427px);
+  gap: 40px;
+  align-items: center;
+}
+
+.about-hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+.about-grid {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 761px 427px;
+  gap: 24px;
+  align-items: start;
+}
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-card {
+  padding: 24px;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.about-list {
+  margin-top: 16px;
+  padding-left: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--c-black);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.about-list img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+.about-map-placeholder {
+  margin-top: 12px;
+  width: 100%;
+  height: 280px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #eaeaea, #dcdcdc);
+}
+
+.about-chat-features {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.about-mini-card {
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #f2f2f2;
+  flex: 1;
+  text-align: center;
+}
+
+.about-mini-card.accent {
+  background: #ffe2d9;
+}
+
+.about-steps {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.about-steps-row {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.about-step {
+  flex: 1;
+  padding: 20px;
+  background: var(--c-white);
+  border-radius: 12px;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+}
+
+.about-step span {
+  display: inline-flex;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--c-accent);
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.about-feature-icon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  margin-bottom: 22px;
+}
+
+.about-city-image {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.about-page,
+.about-hero-grid,
+.about-grid,
+.about-features,
+.about-steps-row,
+.about-chat-features,
+.about-feature-card,
+.about-card,
+.about-step {
+  min-width: 0;
+}
+
+.about-feature-card,
+.about-card,
+.about-step {
+  overflow: hidden;
+}
+
+.about-feature-card h3,
+.about-card h2,
+.about-step h3,
+.about-feature-card p,
+.about-card p,
+.about-step p,
+.about-mini-card {
+  overflow-wrap: anywhere;
+}
+
+.about-city-image,
+.about-hero-image {
+  display: block;
+}
+
+@media (max-width: 1180px) {
+  .about-page {
+    padding: 36px 28px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-features {
+    flex-wrap: wrap;
+  }
+
+  .about-feature-card {
+    width: calc(50% - 12px);
+    height: auto;
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 920px) {
+  .about-page {
+    padding: 28px 20px 40px;
+  }
+
+  .about-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .about-city-image {
+    height: 240px;
+  }
+
+  .about-steps-row {
+    grid-template-columns: 1fr;
+  }
+
+  .about-features {
+    gap: 16px;
+  }
+
+  .about-feature-card {
+    width: 100%;
+    min-height: unset;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-page {
+    padding: 22px 16px 36px;
+  }
+
+  .about-hero h1,
+  .about-hero-text h1 {
+    font-size: 28px;
+    line-height: 1.2;
+  }
+
+  .about-hero p,
+  .about-hero-text p {
+    font-size: 15px;
+  }
+
+  .about-grid,
+  .about-left {
+    gap: 16px;
+  }
+
+  .about-card,
+  .about-feature-card,
+  .about-step {
+    padding: 18px;
+    border-radius: 10px;
+  }
+
+  .about-chat-features {
+    flex-direction: column;
+  }
+
+  .about-mini-card {
+    width: 100%;
+  }
+
+  .about-map-placeholder {
+    height: 220px;
+  }
+
+  .about-city-image {
+    height: 200px;
+    border-radius: 10px;
+  }
+
+  .about-step span {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-page {
+    padding-inline: 12px;
+  }
+
+  .about-card,
+  .about-feature-card,
+  .about-step {
+    padding: 16px;
+  }
+
+  .about-city-image {
+    height: 180px;
+  }
+
+  .about-map-placeholder {
+    height: 180px;
+  }
+
+  .about-feature-icon {
+    margin-bottom: 16px;
+  }
+}

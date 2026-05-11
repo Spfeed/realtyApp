@@ -1,0 +1,41 @@
+
+
+:root {
+  --c-white: #fff;
+  --c-accent: #ff784b;
+  --c-black: #030303;
+  --c-surface: #f2f2f2;
+  --c-muted: #94a3b8;
+  --c-gray: #979797;
+
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+  color: var(--c-black);
+  background: var(--c-white);
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-content {
+  flex: 1;
+}

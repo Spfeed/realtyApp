@@ -1,0 +1,80 @@
+.review-form {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--c-white);
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.review-form h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.review-form-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.review-form textarea {
+  min-height: 90px;
+  resize: vertical;
+
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 0 9px rgba(3, 3, 3, 0.1);
+
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.review-form textarea:focus {
+  box-shadow:
+    0 0 0 2px rgba(255, 120, 75, 0.18),
+    0 0 9px rgba(3, 3, 3, 0.1);
+}
+
+.review-form button {
+  align-self: flex-end;
+
+  height: 40px;
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9999px;
+
+  background: var(--c-accent);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.review-form button:hover {
+  background: #e85f35;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 120, 75, 0.3);
+}
+
+.review-form button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.review-form-error {
+  color: #d92d20;
+  font-size: 13px;
+}
