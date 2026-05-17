@@ -249,6 +249,7 @@ export function ListingsPage() {
       <div className="page-container listings-page-container">
         <section className="listings-topbar">
           <input
+            data-testid="listings-search"
             className="listings-search"
             placeholder="Название объявления"
             value={searchQuery}
@@ -267,6 +268,7 @@ export function ListingsPage() {
             onReset={resetFilters}
           />
           <button
+            data-testid="open-create-listing"
             type="button"
             className="listings-create-button"
             onClick={() => {

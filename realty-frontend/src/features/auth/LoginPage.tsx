@@ -155,6 +155,7 @@ export function LoginPage() {
             <label>
               <span>Email</span>
               <input
+                data-testid="login-email"
                 className={fieldErrors.email ? "login-input-error" : ""}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -168,6 +169,7 @@ export function LoginPage() {
             <label>
               <span>Пароль</span>
               <input
+                data-testid="login-password"
                 className={fieldErrors.password ? "login-input-error" : ""}
                 type="password"
                 value={password}
@@ -194,7 +196,7 @@ export function LoginPage() {
 
             {error && <p className="login-error">{error}</p>}
 
-            <button type="submit">Войти</button>
+            <button data-testid="login-submit" type="submit">Войти</button>
           </form>
         </section>
       </main>

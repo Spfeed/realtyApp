@@ -96,7 +96,6 @@ public class RecommendationService {
     public List<MlRecommendationResponse> getMyRecommendations(Long userId, int limit) {
         List<MlRecommendationResponse> recommendations =
                 mlServiceClient.getHybridRecommendations(userId, limit);
-
         return recommendations != null ? recommendations : List.of();
     }
 

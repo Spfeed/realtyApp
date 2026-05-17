@@ -42,6 +42,9 @@ export function RegisterPage() {
     const passwordHasLetters = /[A-Za-zА-Яа-яЁё]/.test(password);
     const passwordHasNumbers = /\d/.test(password);
 
+    const passwordHasLowerCase = /[a-zа-яё]/.test(password);
+    const passwordHasUpperCase = /[A-ZА-ЯЁ]/.test(password);
+
     if (!email.trim()) {
       nextErrors.email = "Введите email";
     }
@@ -77,6 +80,9 @@ export function RegisterPage() {
       nextErrors.password = "Пароль должен быть не меньше 8 символов";
     } else if (!passwordHasLetters || !passwordHasNumbers) {
       nextErrors.password = "Пароль должен содержать буквы и цифры";
+    } else if (!passwordHasLowerCase || !passwordHasUpperCase) {
+      nextErrors.password =
+        "Пароль должен содержать символы верхнего и нижнего регистра";
     }
 
     if (!repeatPassword) {

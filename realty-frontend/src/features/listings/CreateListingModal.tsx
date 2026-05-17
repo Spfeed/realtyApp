@@ -454,6 +454,7 @@ export function CreateListingModal({
           <label className="create-listing-field create-listing-field--title">
             <span>Название *</span>
             <input
+              data-testid="listing-title"
               value={form.title}
               onChange={(e) => updateForm("title", e.target.value)}
               placeholder="Уютная студия рядом с метро"
@@ -468,6 +469,7 @@ export function CreateListingModal({
           <label className="create-listing-field">
             <span>Площадь (м²) *</span>
             <input
+              data-testid="listing-area"
               type="number"
               step="0.01"
               min="0"
@@ -485,6 +487,7 @@ export function CreateListingModal({
           <label className="create-listing-field">
             <span>Цена (₽/мес) *</span>
             <input
+              data-testid="listing-price"
               type="number"
               min="0"
               value={form.price}
@@ -501,6 +504,7 @@ export function CreateListingModal({
           <label className="create-listing-field create-listing-field--description">
             <span>Описание *</span>
             <textarea
+              data-testid="listing-description"
               value={form.description}
               onChange={(e) => updateForm("description", e.target.value)}
               placeholder="Опишите квартиру: сколько спальных мест, какая мебель, что рядом"
@@ -533,6 +537,7 @@ export function CreateListingModal({
           <label className="create-listing-field">
             <span>Залог (₽) *</span>
             <input
+              data-testid="listing-deposit"
               type="number"
               min="0"
               value={form.depositAmount}
@@ -551,6 +556,7 @@ export function CreateListingModal({
               Этаж <small>(необязательно)</small>
             </span>
             <input
+              data-testid="listing-floor"
               type="number"
               min="1"
               value={form.floor}
@@ -582,6 +588,7 @@ export function CreateListingModal({
           <label className="create-listing-field">
             <span>Город *</span>
             <select
+              data-testid="listing-city"
               value={form.cityId}
               onChange={(e) => updateForm("cityId", e.target.value)}
             >
@@ -602,6 +609,7 @@ export function CreateListingModal({
           <label className="create-listing-field">
             <span>Район *</span>
             <select
+              data-testid="listing-district"
               value={form.districtId}
               onChange={(e) => updateForm("districtId", e.target.value)}
               disabled={!form.cityId}
@@ -624,6 +632,7 @@ export function CreateListingModal({
             <label className="create-listing-field">
               <span>Улица *</span>
               <input
+                data-testid="listing-street"
                 value={form.street}
                 onChange={(e) => updateForm("street", e.target.value)}
                 placeholder="Арбат"
@@ -638,6 +647,7 @@ export function CreateListingModal({
             <label className="create-listing-field">
               <span>Дом *</span>
               <input
+                data-testid="listing-house"
                 value={form.houseNumber}
                 onChange={(e) => updateForm("houseNumber", e.target.value)}
                 placeholder="12А"
@@ -776,6 +786,7 @@ export function CreateListingModal({
             </button>
 
             <button
+              data-testid="listing-submit"
               type="submit"
               className="create-listing-submit"
               disabled={loading}

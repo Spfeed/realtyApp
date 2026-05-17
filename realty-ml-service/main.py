@@ -41,6 +41,33 @@ def health():
     return {"status": "ok"}
 
 
+@app.get("/recommendations/hybrid/{user_id}")
+def get_hybrid(user_id: int, limit: int = 10, alpha: float = 0.6):
+    return get_hybrid_recommendations(user_id=user_id, limit=limit, alpha=alpha)
+
+@app.get("/recommendations/content/{user_id}")
+def get_content(user_id: int, limit: int = 10):
+    return get_content_recommendations(user_id=user_id, limit=limit)
+
+
+@app.get("/recommendations/user-user/{user_id}")
+def get_user_user(user_id: int, limit: int = 10):
+    return get_user_user_recommendations(user_id=user_id, limit=limit)
+
+@app.get("/recommendations/content/{user_id}/debug")
+def get_content_debug_endpoint(user_id: int, limit: int = 10):
+    if not DEBUG_ENDPOINTS_ENABLED:
+        raise HTTPException(status_code=404, detail="Not found")
+
+    return get_content_debug(user_id=user_id, limit=limit)
+
+@app.get("/recommendations/user-user/{user_id}/debug")
+def get_user_user_debug_endpoint(user_id: int, limit: int = 10):
+    if not DEBUG_ENDPOINTS_ENABLED:
+        raise HTTPException(status_code=404, detail="Not found")
+
+    return get_user_user_debug(user_id=user_id, limit=limit)
+
 @app.get("/debug/data")
 def debug_data():
     if not DEBUG_ENDPOINTS_ENABLED:
@@ -56,38 +83,6 @@ def debug_data():
         "events_preview": events_df.head(5).to_dict(orient="records"),
         "listings_preview": listings_df.head(5).to_dict(orient="records"),
     }
-
-
-@app.get("/recommendations/content/{user_id}")
-def get_content(user_id: int, limit: int = 10):
-    return get_content_recommendations(user_id=user_id, limit=limit)
-
-
-@app.get("/recommendations/content/{user_id}/debug")
-def get_content_debug_endpoint(user_id: int, limit: int = 10):
-    if not DEBUG_ENDPOINTS_ENABLED:
-        raise HTTPException(status_code=404, detail="Not found")
-
-    return get_content_debug(user_id=user_id, limit=limit)
-
-
-@app.get("/recommendations/user-user/{user_id}")
-def get_user_user(user_id: int, limit: int = 10):
-    return get_user_user_recommendations(user_id=user_id, limit=limit)
-
-
-@app.get("/recommendations/user-user/{user_id}/debug")
-def get_user_user_debug_endpoint(user_id: int, limit: int = 10):
-    if not DEBUG_ENDPOINTS_ENABLED:
-        raise HTTPException(status_code=404, detail="Not found")
-
-    return get_user_user_debug(user_id=user_id, limit=limit)
-
-
-@app.get("/recommendations/hybrid/{user_id}")
-def get_hybrid(user_id: int, limit: int = 10, alpha: float = 0.6):
-    return get_hybrid_recommendations(user_id=user_id, limit=limit, alpha=alpha)
-
 
 @app.get("/recommendations/hybrid/{user_id}/debug")
 def get_hybrid_debug_endpoint(user_id: int, limit: int = 10, alpha: float = 0.6):

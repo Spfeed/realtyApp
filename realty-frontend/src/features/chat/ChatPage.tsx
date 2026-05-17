@@ -284,7 +284,6 @@ export function ChatPage() {
         setNewMessagesCount((prev) => prev + (currentCount - previousCount));
       }
     }
-
     previousMessagesCountRef.current = currentCount;
   }, [messages]);
 
@@ -372,9 +371,12 @@ export function ChatPage() {
   }
 
   function scrollToBottom(behavior: ScrollBehavior = "smooth") {
-    messagesEndRef.current?.scrollIntoView({
+    const el = messagesContainerRef.current;
+    if (!el) return;
+
+    el.scrollTo({
+      top: el.scrollHeight,
       behavior,
-      block: "end",
     });
 
     setNewMessagesCount(0);
